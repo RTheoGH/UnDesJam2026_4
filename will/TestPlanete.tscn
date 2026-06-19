@@ -9,3 +9,11 @@ position = Vector2(627, 243)
 
 [node name="Camera2D" type="Camera2D" parent="PlaneteBody" unique_id=453934267]
 zoom = Vector2(0.235, 0.235)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1005779513]
+z_index = -13
+offset_left = -2102.0
+offset_top = -1484.0
+offset_right = 3465.0
+offset_bottom = 2136.0
+color = Color(0, 0.019645538, 0.08044457, 1)
