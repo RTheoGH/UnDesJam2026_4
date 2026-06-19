@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dm233bd0xy1b"]
+
+[ext_resource type="Script" uid="uid://c0831m0yy84ag" path="res://este/space_ship.gd" id="1_w1vnf"]
+[ext_resource type="Texture2D" uid="uid://n16q2gl7iqri" path="res://test_azou/mbappe.jpeg" id="2_nry0k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bhunq"]
+radius = 36.345562
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q40gy"]
+radius = 45.099888
+
+[node name="SpaceShip" type="RigidBody2D" unique_id=1690226175]
+collision_mask = 8
+gravity_scale = 0.0
+script = ExtResource("1_w1vnf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1541873896]
+shape = SubResource("CircleShape2D_bhunq")
+
+[node name="Mbappe" type="Sprite2D" parent="." unique_id=95032140]
+z_index = 1
+z_as_relative = false
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("2_nry0k")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1652923506]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=42247419]
+shape = SubResource("CircleShape2D_q40gy")
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]

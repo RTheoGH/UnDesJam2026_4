@@ -1,37 +1,12 @@
 [gd_scene format=3 uid="uid://uim1wwnv75mp"]
 
-[ext_resource type="Script" uid="uid://c0831m0yy84ag" path="res://este/space_ship.gd" id="1_m367k"]
-[ext_resource type="Texture2D" uid="uid://n16q2gl7iqri" path="res://test_azou/mbappe.jpeg" id="2_q40gy"]
+[ext_resource type="PackedScene" uid="uid://dm233bd0xy1b" path="res://este/SpaceShip.tscn" id="1_q40gy"]
 [ext_resource type="PackedScene" uid="uid://idybvatgvwgc" path="res://este/Planete.tscn" id="3_ixbn4"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_bhunq"]
-radius = 36.345562
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_q40gy"]
-radius = 45.099888
 
 [node name="TestEste" type="Node2D" unique_id=1671598491]
 
-[node name="SpaceShip" type="RigidBody2D" parent="." unique_id=2055588536]
+[node name="SpaceShip" parent="." unique_id=1690226175 instance=ExtResource("1_q40gy")]
 position = Vector2(-17, -1393)
-collision_mask = 8
-gravity_scale = 0.0
-script = ExtResource("1_m367k")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpaceShip" unique_id=1942254967]
-shape = SubResource("CircleShape2D_bhunq")
-
-[node name="Mbappe" type="Sprite2D" parent="SpaceShip" unique_id=1860934006]
-z_index = 1
-z_as_relative = false
-scale = Vector2(0.13, 0.13)
-texture = ExtResource("2_q40gy")
-
-[node name="DetectionArea" type="Area2D" parent="SpaceShip" unique_id=630087993]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpaceShip/DetectionArea" unique_id=1121212257]
-shape = SubResource("CircleShape2D_q40gy")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1585786424]
 position = Vector2(2293, -248)
@@ -43,6 +18,3 @@ position = Vector2(956, -205)
 [node name="PlaneteBody2" parent="." unique_id=2132259082 instance=ExtResource("3_ixbn4")]
 position = Vector2(3259, -271)
 planete_name = "Planete_2"
-
-[connection signal="area_entered" from="SpaceShip/DetectionArea" to="SpaceShip" method="_on_detection_area_area_entered"]
-[connection signal="area_exited" from="SpaceShip/DetectionArea" to="SpaceShip" method="_on_detection_area_area_exited"]
