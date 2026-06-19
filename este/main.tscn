@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bp3ggb22v7r0t"]
+
+[ext_resource type="Script" uid="uid://b2mvpfoy3uiih" path="res://este/slingshot.gd" id="1_e7mq6"]
+
+[node name="Main" type="Node2D" unique_id=556952425]
+script = ExtResource("1_e7mq6")

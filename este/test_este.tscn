@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://uim1wwnv75mp"]
 
-[ext_resource type="PackedScene" uid="uid://dm233bd0xy1b" path="res://este/SpaceShip.tscn" id="1_q40gy"]
 [ext_resource type="Script" uid="uid://cjl5j3xkn8pv1" path="res://este/HUD.gd" id="3_go7hu"]
 [ext_resource type="PackedScene" uid="uid://idybvatgvwgc" path="res://este/Planete.tscn" id="3_ixbn4"]
 [ext_resource type="FontFile" uid="uid://o8w1hyt3aa18" path="res://este/Prototype.ttf" id="3_jsavf"]
+[ext_resource type="PackedScene" uid="uid://28gi7764qbbd" path="res://este/SlingShot.tscn" id="4_jsavf"]
 
 [node name="TestEste" type="Node2D" unique_id=1671598491]
-
-[node name="SpaceShip" parent="." unique_id=1690226175 instance=ExtResource("1_q40gy")]
-position = Vector2(-17, -1393)
 
 [node name="PlaneteBody" parent="." unique_id=1201935345 instance=ExtResource("3_ixbn4")]
 position = Vector2(1306, -489)
@@ -29,3 +26,8 @@ offset_bottom = 33.0
 theme_override_fonts/font = ExtResource("3_jsavf")
 theme_override_font_sizes/font_size = 30
 text = "SCORE :"
+
+[node name="SlingShot" parent="." unique_id=1821280342 instance=ExtResource("4_jsavf")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1251929492]
+zoom = Vector2(0.09, 0.09)

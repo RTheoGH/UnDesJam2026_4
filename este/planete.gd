@@ -2,7 +2,7 @@ extends Node2D
 
 var rayon = 540
 
-@export var gravite := 90.0
+@export var gravite := 900.0
 @export var planete_name = "Planete"
 @export var lore = "Lorem ipsum"
 
