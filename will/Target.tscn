@@ -8,9 +8,9 @@ size = Vector2(329, 364)
 
 [node name="Target" type="Node2D" unique_id=488344208 groups=["Destructibles"]]
 script = ExtResource("1_dfpsy")
-scales = Array[float]([0.8, 0.6])
-sprites = Array[String](["res://will/maison_1.png", "res://will/arbre_1.png"])
-points = Array[int]([20, 30])
+scales = Array[float]([0.8, 0.6, 0.3])
+sprites = Array[String](["res://will/maison_1.png", "res://will/arbre_1.png", "res://will/alien_1.png"])
+points = Array[int]([20, 30, 10])
 
 [node name="TargetSprite" type="Sprite2D" parent="." unique_id=397101506]
 position = Vector2(-1, -1)

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dbfqjfvyhe73y"]
+
+[ext_resource type="PackedScene" uid="uid://dm233bd0xy1b" path="res://este/SpaceShip.tscn" id="1_ac0mb"]
+[ext_resource type="PackedScene" uid="uid://nmi7v81obe30" path="res://will/Rocher.tscn" id="2_y2hb3"]
+[ext_resource type="Script" uid="uid://cjl5j3xkn8pv1" path="res://este/HUD.gd" id="3_p5qw8"]
+[ext_resource type="FontFile" uid="uid://o8w1hyt3aa18" path="res://este/Prototype.ttf" id="4_33arc"]
+
+[node name="TestWill" type="Node2D" unique_id=2138686685]
+
+[node name="SpaceShip" parent="." unique_id=1690226175 instance=ExtResource("1_ac0mb")]
+
+[node name="RocherHitbox" parent="." unique_id=917916693 instance=ExtResource("2_y2hb3")]
+position = Vector2(454, -1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=438731617 node_paths=PackedStringArray("score_label")]
+script = ExtResource("3_p5qw8")
+score_label = NodePath("Label")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=719434210]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 68.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("4_33arc")
+theme_override_font_sizes/font_size = 30
+text = "SCORE :"
+metadata/_edit_use_anchors_ = true

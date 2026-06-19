@@ -13,7 +13,7 @@ var touche = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	index = randi_range(0,1)
+	index = randi_range(0,2)
 	sprite.texture = load(sprites[index])
 	sprite.scale = Vector2(scales[index]+randf_range(-0.1,0.1),scales[index]+randf_range(-0.1,0.1))
 
