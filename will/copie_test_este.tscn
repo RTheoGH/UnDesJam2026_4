@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ctpd1twyw6vp5"]
+
+[ext_resource type="PackedScene" uid="uid://idybvatgvwgc" path="res://este/Planete.tscn" id="1_flhdl"]
+[ext_resource type="Script" uid="uid://cjl5j3xkn8pv1" path="res://este/HUD.gd" id="2_p1a15"]
+[ext_resource type="FontFile" uid="uid://o8w1hyt3aa18" path="res://este/Prototype.ttf" id="3_v0ksf"]
+[ext_resource type="PackedScene" uid="uid://28gi7764qbbd" path="res://este/SlingShot.tscn" id="4_qtwah"]
+[ext_resource type="PackedScene" uid="uid://c0favtk00vids" path="res://will/test_SpaceShip.tscn" id="5_qoba1"]
+
+[node name="TestEste" type="Node2D" unique_id=1671598491]
+
+[node name="PlaneteBody" parent="." unique_id=1201935345 instance=ExtResource("1_flhdl")]
+position = Vector2(1306, -489)
+
+[node name="PlaneteBody2" parent="." unique_id=2132259082 instance=ExtResource("1_flhdl")]
+position = Vector2(3259, -271)
+planete_name = "Planete_2"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1175517609 node_paths=PackedStringArray("score_label")]
+script = ExtResource("2_p1a15")
+score_label = NodePath("Label")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1241588513]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 68.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("3_v0ksf")
+theme_override_font_sizes/font_size = 30
+text = "SCORE :"
+
+[node name="SlingShot" parent="." unique_id=1821280342 instance=ExtResource("4_qtwah")]
+modeleShip = ExtResource("5_qoba1")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1251929492]
+zoom = Vector2(0.09, 0.09)

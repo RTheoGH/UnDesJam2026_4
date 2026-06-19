@@ -3,6 +3,7 @@ extends Node2D
 var initial_mouse_pos = Vector2(0.0,0.0)
 @onready var aim = $Sprite2D
 
+@export var modeleShip:PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,7 +28,7 @@ func _process(delta: float) -> void:
 		
 		
 func spawn_ship() -> void:
-	var ship_scene = load("res://este/SpaceShip.tscn")
+	var ship_scene = modeleShip
 	var ship = ship_scene.instantiate()
 	ship.velocity = (initial_mouse_pos - get_global_mouse_position()).normalized() * (get_global_mouse_position() - initial_mouse_pos).length()
 	add_child(ship)

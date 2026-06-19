@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c0favtk00vids"]
+
+[ext_resource type="Script" uid="uid://do4odt36y1my7" path="res://will/test_space_ship.gd" id="1_t2hcn"]
+[ext_resource type="Texture2D" uid="uid://n16q2gl7iqri" path="res://test_azou/mbappe.jpeg" id="2_ypcm3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bhunq"]
+radius = 36.345562
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q40gy"]
+radius = 45.099888
+
+[node name="SpaceShip" type="RigidBody2D" unique_id=1690226175]
+collision_mask = 8
+gravity_scale = 0.0
+script = ExtResource("1_t2hcn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1541873896]
+shape = SubResource("CircleShape2D_bhunq")
+
+[node name="Mbappe" type="Sprite2D" parent="." unique_id=95032140]
+z_index = 1
+z_as_relative = false
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("2_ypcm3")
+
+[node name="AtmosphèreDetectionArea" type="Area2D" parent="." unique_id=1652923506]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AtmosphèreDetectionArea" unique_id=42247419]
+shape = SubResource("CircleShape2D_q40gy")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=443273810]
+
+[connection signal="area_entered" from="AtmosphèreDetectionArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_exited" from="AtmosphèreDetectionArea" to="." method="_on_detection_area_area_exited"]
