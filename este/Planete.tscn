@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://idybvatgvwgc"]
+
+[ext_resource type="Script" uid="uid://0o7utb56lk6a" path="res://este/planete.gd" id="1_8knue"]
+[ext_resource type="Texture2D" uid="uid://b85g6r4sdjvmx" path="res://will/planete.png" id="1_aq17k"]
+[ext_resource type="Texture2D" uid="uid://b2lh3tg7iwunp" path="res://will/terre.png" id="2_nxhxs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_riqys"]
+radius = 1166.3859
+
+[node name="GraviteArea" type="Area2D" unique_id=1882456342]
+collision_layer = 2
+script = ExtResource("1_8knue")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1699273411]
+shape = SubResource("CircleShape2D_riqys")
+
+[node name="AtmosphereSprite" type="Sprite2D" parent="." unique_id=717966888]
+z_index = -1
+texture = ExtResource("1_aq17k")
+
+[node name="PlaneteSprite" type="Sprite2D" parent="." unique_id=1578449415]
+z_index = 1
+texture = ExtResource("2_nxhxs")
