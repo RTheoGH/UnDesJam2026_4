@@ -20,7 +20,7 @@ var Tmax = 15
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
-	index = randi_range(0,2)
+	index = randi_range(0,3)
 	planeteSprite.texture = load(planeteSprites[index])
 	atmosSprite.texture = load(atmosSprites[index])
 	atmosSprite.scale = Vector2(atmosScales[index],atmosScales[index])
