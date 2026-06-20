@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://28gi7764qbbd" path="res://tests/este/SlingShot.tscn" id="4_qnlwm"]
 [ext_resource type="PackedScene" uid="uid://c0favtk00vids" path="res://tests/will/test_SpaceShip.tscn" id="5_5rirm"]
 [ext_resource type="AudioStream" uid="uid://bs3w46iij5jgi" path="res://ressources/musics/space jam - Pac.wav" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://dk3r5ypkwhr0v" path="res://scenes/soleil.tscn" id="9_0tnpc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p57ef"]
 shader = ExtResource("2_u5sy4")
@@ -79,6 +80,9 @@ zoom = Vector2(0.06, 0.06)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=1714873169]
 stream = ExtResource("8_gee14")
 volume_db = -15.0
+
+[node name="Soleil" parent="." unique_id=926955801 instance=ExtResource("9_0tnpc")]
+position = Vector2(11936, -6950)
 
 [connection signal="mouse_entered" from="Launch_zone" to="." method="_on_launch_zone_mouse_entered"]
 [connection signal="mouse_exited" from="Launch_zone" to="." method="_on_launch_zone_mouse_exited"]

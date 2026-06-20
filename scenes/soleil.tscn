@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dk3r5ypkwhr0v"]
+
+[ext_resource type="Texture2D" uid="uid://bn3wb78tv2kqk" path="res://ressources/imgs/soleil.png" id="1_grjek"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fkba7"]
+radius = 5053.533
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5xci8"]
+radius = 13850.251
+
+[node name="Soleil" type="RigidBody2D" unique_id=2125018766 groups=["Morts"]]
+collision_layer = 8
+mass = 1500.0
+gravity_scale = 0.0
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=432295978]
+shape = SubResource("CircleShape2D_fkba7")
+
+[node name="GraviteArea" type="Area2D" parent="." unique_id=1443111089]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GraviteArea" unique_id=1211441845]
+shape = SubResource("CircleShape2D_5xci8")
+
+[node name="PlaneteSprite" type="Sprite2D" parent="." unique_id=67609281]
+z_index = 2
+scale = Vector2(30, 30)
+texture = ExtResource("1_grjek")
