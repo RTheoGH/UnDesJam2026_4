@@ -43,3 +43,12 @@ func spawn_target():
 #Retourne sous forme de tableau les info de la planete
 func get_info() -> Array:
 	return [planete_name,gravite,global_position,lore]
+	
+@onready var tween:= get_tree().create_tween()
+
+func fade_in(duration := 0.5):
+	modulate.a = 0.0
+	visible = true
+	tween.kill()
+	tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate:a", 1.0, duration)

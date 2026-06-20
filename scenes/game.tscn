@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://noa60c0t6tw5"]
 
 [ext_resource type="Script" uid="uid://d25thv32qt80l" path="res://scripts/game.gd" id="1_p57ef"]
+[ext_resource type="Texture2D" uid="uid://cx817xlp5538v" path="res://ressources/imgs/planete_terre.png" id="2_p57ef"]
 [ext_resource type="Script" uid="uid://cjl5j3xkn8pv1" path="res://tests/este/HUD.gd" id="2_vlr0v"]
 [ext_resource type="FontFile" uid="uid://o8w1hyt3aa18" path="res://tests/este/Prototype.ttf" id="3_pn8af"]
 [ext_resource type="PackedScene" uid="uid://28gi7764qbbd" path="res://tests/este/SlingShot.tscn" id="4_qnlwm"]
@@ -16,15 +17,34 @@ gradient = SubResource("Gradient_iywne")
 fill = 1
 fill_from = Vector2(0.32478634, 0.6880342)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_82o31"]
+radius = 1187.4258
+height = 4252.868
+
 [node name="game" type="Node2D" unique_id=1671598491]
 script = ExtResource("1_p57ef")
+n_planetes = 10
+distance_min = 2100.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1063502516]
-offset_left = -18067.273
-offset_top = -10386.0
-offset_right = 18052.336
-offset_bottom = 10794.0
+offset_left = -17523.0
+offset_top = -9854.0
+offset_right = 18596.61
+offset_bottom = 11326.0
 texture = SubResource("GradientTexture2D_82o31")
+
+[node name="Launch_zone" type="Area2D" parent="." unique_id=118761695]
+position = Vector2(-8911, 4917)
+
+[node name="PlaneteTerre" type="Sprite2D" parent="Launch_zone" unique_id=580850965]
+position = Vector2(0.0014648438, -0.0009765625)
+scale = Vector2(6.3233323, 6.3233323)
+texture = ExtResource("2_p57ef")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Launch_zone" unique_id=386140047]
+position = Vector2(562, -681)
+rotation = -0.76404095
+shape = SubResource("CapsuleShape2D_82o31")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1175517609 node_paths=PackedStringArray("score_label")]
 script = ExtResource("2_vlr0v")
@@ -38,9 +58,13 @@ offset_bottom = 33.0
 theme_override_fonts/font = ExtResource("3_pn8af")
 theme_override_font_sizes/font_size = 30
 text = "SCORE :"
+metadata/_edit_use_anchors_ = true
 
 [node name="SlingShot" parent="." unique_id=1821280342 instance=ExtResource("4_qnlwm")]
 modeleShip = ExtResource("5_5rirm")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1251929492]
-zoom = Vector2(0.09, 0.09)
+zoom = Vector2(0.06, 0.06)
+
+[connection signal="mouse_entered" from="Launch_zone" to="." method="_on_launch_zone_mouse_entered"]
+[connection signal="mouse_exited" from="Launch_zone" to="." method="_on_launch_zone_mouse_exited"]
