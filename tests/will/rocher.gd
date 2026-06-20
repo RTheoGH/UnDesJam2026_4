@@ -8,6 +8,8 @@ func _ready() -> void:
 	var s = randf_range(0.5,1.5)
 	sprite.texture = load("res://icon.svg")
 	sprite.scale = Vector2(s,s)
+	sprite.rotation = randf_range(0,360)
+	sprite.flip_h = randi_range(0,1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

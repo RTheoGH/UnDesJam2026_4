@@ -15,8 +15,8 @@ collision_layer = 8
 mass = 1000.0
 gravity_scale = 0.0
 script = ExtResource("1_8knue")
-planeteSprites = Array[String](["res://tests/will/planete_1.png", "res://tests/test_azou/Planete_A.png", "res://tests/este/planete.png", "res://ressources/imgs/planetes/planet_Clo.png"])
-atmosSprites = Array[String](["res://tests/will/atmos_1.png", "res://tests/test_azou/namek_atmosphere.png", "res://tests/este/atmosphere.png", "res://ressources/imgs/atmospheres/atmosphere_planet_Clo.png"])
+planeteSprites = Array[String](["res://ressources/imgs/planetes/planete_1.png", "res://ressources/imgs/planetes/Planete_A.png", "res://ressources/imgs/planetes/planete.png", "res://ressources/imgs/planetes/planet_Clo.png"])
+atmosSprites = Array[String](["res://ressources/imgs/atmospheres/atmos_1.png", "res://ressources/imgs/atmospheres/namek_atmosphere.png", "res://ressources/imgs/atmospheres/atmosphere.png", "res://ressources/imgs/atmospheres/atmosphere_planet_Clo.png"])
 atmosScales = Array[float]([1.2, 1.5, 4.5, 1.2])
 planeteScales = Array[float]([1.05, 2.2, 2.5, 1.1])
 
