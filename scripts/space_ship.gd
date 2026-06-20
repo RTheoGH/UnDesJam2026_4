@@ -59,9 +59,7 @@ func calculate_attractions() -> Vector2:
 
 # Ajoute l'orbite traversée au dictionnaire "orbites" avec le nom en clé et les infos en valeurs
 func _on_detection_area_area_entered(area: Area2D) -> void:
-	print(area)
 	var parent = area.get_parent()
-	print(parent)
 	
 	if parent.is_in_group("Planetes"):
 		var info = parent.get_info()
@@ -69,7 +67,6 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 	elif parent.is_in_group("Destructibles"):
 		parent.hit()
 	elif parent.is_in_group("Morts"):
-		print("oui")
 		in_range_sun = true
 
 
