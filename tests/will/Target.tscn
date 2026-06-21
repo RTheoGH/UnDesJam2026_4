@@ -1,13 +1,60 @@
-[gd_scene format=3 uid="uid://u8bl5506ivhk"]
+[gd_scene format=3 uid="uid://ceeao43c5vx0q"]
 
-[ext_resource type="Script" uid="uid://b24csjk75bv42" path="res://tests/will/target.gd" id="1_dfpsy"]
 [ext_resource type="Texture2D" uid="uid://dmjy7igt0asiy" path="res://tests/will/maison_1.png" id="2_t4f3m"]
+
+[sub_resource type="GDScript" id="GDScript_jweaq"]
+script/source = "extends Node2D
+
+@onready var sprite = $TargetSprite
+@onready var hitbox = $TargetHitbox
+
+var index:int = 0
+var planeteIndex:int = 0
+
+@export var scales: Array[float]
+@export var sprites: Array[String]
+@export var points: Array[int]
+
+var touche = false
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	index = randi_range(0,3)+planeteIndex*4
+	sprite.texture = load(sprites[index])
+	sprite.scale = Vector2(scales[index]+randf_range(-0.1,0.1),scales[index]+randf_range(-0.1,0.1))
+	sprite.flip_h = randi_range(0,1)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	#oriente(get_global_mouse_position())
+	pass
+
+func get_sprite():
+	return sprite
+
+func get_hitbox():
+	return hitbox
+
+func oriente(cible):
+	var angle = rad_to_deg(get_angle_to(cible))-90
+	rotate(deg_to_rad(angle))
+
+func hit():
+	if not touche :
+		#queue_free()
+		scale.y *= 0.2
+		PlayerInfo.set_score(PlayerInfo.score + points[index])
+		print(PlayerInfo.score)
+		touche = true
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(329, 364)
 
 [node name="Target" type="Node2D" unique_id=488344208 groups=["Destructibles"]]
-script = ExtResource("1_dfpsy")
+script = SubResource("GDScript_jweaq")
 scales = Array[float]([0.8, 0.6, 0.3, 0.5, 0.8, 0.6, 0.3, 0.5, 0.8, 0.6, 0.3, 0.5, 1.0, 1.0, 1.0, 1.0])
 sprites = Array[String](["res://ressources/imgs/objets/maison_1.png", "res://ressources/imgs/objets/arbre_1.png", "res://ressources/imgs/objets/alien_1.png", "res://ressources/imgs/objets/ovni_1.png", "res://ressources/imgs/objets/maison_namek.png", "res://ressources/imgs/objets/arbre_namek.png", "res://ressources/imgs/objets/aura_farm.png", "res://ressources/imgs/objets/low_fog.png", "res://ressources/imgs/objets/Maison.png", "res://ressources/imgs/objets/caillou.png", "res://ressources/imgs/objets/bonhomme.png", "res://ressources/imgs/objets/pillier.png", "res://ressources/imgs/objets/props_art_1.png", "res://ressources/imgs/objets/props_art_2.png", "res://ressources/imgs/objets/props_art_4.png", "res://ressources/imgs/objets/props_art_3.png"])
 points = Array[int]([20, 30, 10, 50, 20, 30, 10, 50, 20, 30, 10, 15, 20, 30, 10, 15])

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://idxmgy14368n" path="res://scripts/planete.gd" id="1_8li2x"]
 [ext_resource type="Texture2D" uid="uid://b85g6r4sdjvmx" path="res://tests/will/planete.png" id="2_7ec5j"]
+[ext_resource type="PackedScene" uid="uid://csdl3qips5n4k" path="res://scenes/target.tscn" id="2_lhfgk"]
 [ext_resource type="Texture2D" uid="uid://b2lh3tg7iwunp" path="res://tests/will/terre.png" id="3_wfb0q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8knue"]
@@ -15,10 +16,11 @@ collision_layer = 8
 mass = 1000.0
 gravity_scale = 0.0
 script = ExtResource("1_8li2x")
-planeteSprites = Array[String](["res://ressources/imgs/planetes/planete_1.png", "res://ressources/imgs/planetes/Planete_A.png", "res://ressources/imgs/planetes/planete.png", "res://ressources/imgs/planetes/planet_Clo.png"])
-atmosSprites = Array[String](["res://ressources/imgs/atmospheres/atmos_1.png", "res://ressources/imgs/atmospheres/namek_atmosphere.png", "res://ressources/imgs/atmospheres/atmosphere.png", "res://ressources/imgs/atmospheres/atmosphere_planet_Clo.png"])
-atmosScales = Array[float]([1.2, 1.5, 4.5, 1.2])
-planeteScales = Array[float]([1.05, 2.2, 2.5, 1.1])
+planeteSprites = Array[String](["res://ressources/imgs/planetes/planete_1.png", "res://ressources/imgs/planetes/Planete_A.png", "res://ressources/imgs/planetes/planete.png", "res://ressources/imgs/planetes/planet_Clo.png", "res://ressources/imgs/planetes/planete_lou.png"])
+atmosSprites = Array[String](["res://ressources/imgs/atmospheres/atmos_1.png", "res://ressources/imgs/atmospheres/namek_atmosphere.png", "res://ressources/imgs/atmospheres/atmosphere.png", "res://ressources/imgs/atmospheres/atmosphere_planet_Clo.png", "res://ressources/imgs/atmospheres/atmosphere_lou.png"])
+atmosScales = Array[float]([1.2, 1.5, 4.5, 1.2, 1.0])
+planeteScales = Array[float]([1.05, 2.2, 2.5, 1.1, 1.0])
+target_scene = ExtResource("2_lhfgk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1871859351]
 shape = SubResource("CircleShape2D_8knue")

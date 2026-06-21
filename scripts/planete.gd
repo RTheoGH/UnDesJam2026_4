@@ -14,13 +14,15 @@ var rayon = 540
 @export var atmosScales: Array[float]
 @export var planeteScales: Array[float]
 
+@export var target_scene: PackedScene
+
 var index = 0
 var Tmin = 5
 var Tmax = 15
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
-	index = randi_range(0,3)
+	index = randi_range(0,4)
 	planeteSprite.texture = load(planeteSprites[index])
 	atmosSprite.texture = load(atmosSprites[index])
 	atmosSprite.scale = Vector2(atmosScales[index],atmosScales[index])
@@ -32,7 +34,7 @@ func _ready() -> void:
 
 #Spawn un objet à la surface de la planète puis l'oriente vers son centre
 func spawn_target():
-	var target_scene = load("res://tests/will/Target.tscn")
+	var target_scene = target_scene
 	var target = target_scene.instantiate()
 	target.planeteIndex = index
 	add_child(target)

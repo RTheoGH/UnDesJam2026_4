@@ -44,13 +44,12 @@ func _physics_process(_delta: float) -> void:
 		get_parent().get_node("AudioStreamPlayer2D").play()
 		
 	if Input.is_action_just_pressed("center_cam_on_ship") and ship_spawned:
-		cam_directed = !cam_directed
+		start_directed_cam()
 		
-		if cam_directed:
-			start_directed_cam()
-		else:
-			end_directed_cam()
-		
+
+	if Input.is_action_just_released("center_cam_on_ship") and ship_spawned:
+		end_directed_cam()
+	
 	if camera_catching_up and is_instance_valid(current_ship):
 		var cam = get_parent().get_node("Camera2D")
 		var catchup_factor = clamp(current_ship.velocity.length() * 0.0001, 0.05, 0.5)
