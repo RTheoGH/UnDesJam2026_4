@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://bphektnuti2ub"]
 
 [ext_resource type="Script" uid="uid://cnnio1bhlf2a1" path="res://tests/will/test_planete.gd" id="1_5fh2i"]
+[ext_resource type="Texture2D" uid="uid://dr3w4cyjgiaku" path="res://ressources/imgs/fond.png" id="2_5fh2i"]
 
 [node name="TestPlanete" type="Node2D" unique_id=282177852]
 script = ExtResource("1_5fh2i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1563821712]
+position = Vector2(411.49994, 129.49991)
+scale = Vector2(4.2338543, 4.662037)
+texture = ExtResource("2_5fh2i")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=453934267]
 zoom = Vector2(0.235, 0.235)
