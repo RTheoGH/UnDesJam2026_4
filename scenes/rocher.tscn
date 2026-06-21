@@ -6,7 +6,12 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 64.49806
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bhunq"]
+radius = 205.06097
+
 [node name="RocherHitbox" type="RigidBody2D" unique_id=917916693 groups=["Destructibles"]]
+collision_layer = 16
+collision_mask = 25
 gravity_scale = 0.0
 script = ExtResource("1_oewhh")
 sprites = Array[String](["res://ressources/imgs/nugget_1.png", "res://ressources/imgs/nugget_2.png"])
@@ -20,6 +25,17 @@ metadata/_edit_group_ = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2069002725]
 collision_layer = 4
+collision_mask = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=907859147]
 shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="BoomBox" type="Area2D" parent="." unique_id=2093640114]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoomBox" unique_id=224856856]
+shape = SubResource("CircleShape2D_bhunq")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="BoomBox" to="." method="_on_boom_box_area_entered"]

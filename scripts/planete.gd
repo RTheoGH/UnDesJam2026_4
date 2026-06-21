@@ -17,7 +17,6 @@ var rayon = 540
 @export var target_scene: PackedScene
 @export var index_generated = randi_range(0,4)
 
-
 var planete_index = 0
 var Tmin = 5
 var Tmax = 15
@@ -63,3 +62,14 @@ func generate_planete(index):
 	planeteSprite.rotation = randf_range(0,360)
 	atmosSprite.rotation = randf_range(0,360)
 	for i in randi_range(Tmin, Tmax) : spawn_target()
+
+
+func _on_gravite_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("click"):
+		print("clicked")
+		print(planete_index)
+		var fiche_scene = load("res://scenes/fiche.tscn")
+		var fiche = fiche_scene.instantiate()
+		fiche.planete_index = planete_index
+		get_parent().get_node("CanvasLayer").add_child(fiche)
+	pass # Replace with function body.

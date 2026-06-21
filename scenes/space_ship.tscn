@@ -24,7 +24,7 @@ point_count = 2
 radius = 62.008064
 
 [node name="SpaceShip" type="RigidBody2D" unique_id=1690226175]
-collision_mask = 8
+collision_mask = 24
 gravity_scale = 0.0
 linear_damp_mode = 1
 script = ExtResource("1_bt5oy")

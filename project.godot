@@ -65,6 +65,7 @@ center_cam_on_ship={
 2d_physics/layer_2="Atmosphere"
 2d_physics/layer_3="Destructible"
 2d_physics/layer_4="Sol"
+2d_physics/layer_5="Asteroid"
 
 [physics]
 

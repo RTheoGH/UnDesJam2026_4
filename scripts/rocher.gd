@@ -1,5 +1,5 @@
 extends Node2D
-
+@onready var boom_area =$BoomBox
 @onready var sprite = $RocherSprite
 @export var sprites: Array[String]
 @export var score = 1
@@ -24,4 +24,21 @@ func _process(_delta: float) -> void:
 
 func hit():
 	PlayerInfo.set_score(PlayerInfo.score+score)
+	boom_area.monitoring = true
 	queue_free()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	var parent = area.get_parent()
+	if parent.is_in_group("Destructibles"):
+		parent.hit()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Planetes"):
+		hit()
+
+
+func _on_boom_box_area_entered(area: Area2D) -> void:
+	if area.get_parent().is_in_group("Destructibles"):
+		area.get_parent().hit()
