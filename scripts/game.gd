@@ -45,7 +45,7 @@ func _ready() -> void:
 	get_node("Launch_zone/CollisionShape2D").disabled = true
 	for i in range(n_planetes):
 		await get_tree().create_timer(0.025).timeout
-		spawn_planete()
+		spawn_planete(i)
 	for i in range(n_asteroids):
 		#await get_tree().create_timer(0.001).timeout
 		spawn_asteroids()
@@ -170,7 +170,7 @@ func pos_valide(pos : Vector2, is_planet: bool) -> bool:
 			return false
 	return true
 	
-func spawn_planete():
+func spawn_planete(index : int):
 	var pos : Vector2
 	var essais = 0
 	
@@ -187,6 +187,7 @@ func spawn_planete():
 	
 	var planete_instance = planete.instantiate()
 	planete_instance.position = pos
+	planete_instance.index_planete = index
 	add_child(planete_instance)
 	planete_instance.visible = false
 	planete_instance.play_spawn()
@@ -232,4 +233,4 @@ func _on_timer_timeout() -> void:
 	await get_tree().create_timer(0.25).timeout
 	canvas.fade_out("Annoncer")
 	await get_tree().create_timer(1.0).timeout
-	get_tree().change_scene_to_packed(load("res://scenes/main.tscn"))
+	get_tree().change_scene_to_packed(load("res://scenes/end.tscn"))

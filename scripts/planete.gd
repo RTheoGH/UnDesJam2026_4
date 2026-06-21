@@ -16,6 +16,7 @@ var rayon = 540
 
 @export var target_scene: PackedScene
 @export var index_generated = randi_range(0,5)
+var index_planete := 0
 
 var planete_index = 0
 var Tmin = 5
@@ -24,7 +25,8 @@ var Tmax = 15
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	generate_planete(index_generated)
+	#generate_planete(index_generated)
+	generate_planete(index_planete)
 	pass # Replace with function body.
 
 #Spawn un objet à la surface de la planète puis l'oriente vers son centre

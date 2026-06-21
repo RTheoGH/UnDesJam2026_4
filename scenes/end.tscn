@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://crf4m6lpgxbyd"]
+
+[ext_resource type="Texture2D" uid="uid://cfrotfowb8ly6" path="res://ressources/imgs/Menu_despioneer.png" id="1_mwn6m"]
+
+[node name="End" type="Control" unique_id=1158724647]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fond" type="TextureRect" parent="." unique_id=287585130]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mwn6m")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
