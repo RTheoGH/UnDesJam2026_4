@@ -66,7 +66,6 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 		else:
 			text = "Space ship destroyed"
 		get_parent().delete_ship(text)
-		print("soleil")
 		
 	var parent = area.get_parent()
 	

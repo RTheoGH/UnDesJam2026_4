@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bn3wb78tv2kqk" path="res://ressources/imgs/soleil.png" id="1_grjek"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fkba7"]
-radius = 4742.16
+radius = 4785.659
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5xci8"]
 radius = 9750.0
@@ -19,7 +19,6 @@ light_mask = 2
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GraviteArea" unique_id=1211441845]
-visible = false
 shape = SubResource("CircleShape2D_5xci8")
 
 [node name="PlaneteSprite" type="Sprite2D" parent="." unique_id=67609281]
