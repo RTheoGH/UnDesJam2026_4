@@ -66,6 +66,13 @@ func _physics_process(_delta: float) -> void:
 		get_parent().get_node("Camera2D").position = current_ship.position
 	
 	if Input.is_action_just_pressed("reset") and ship_spawned:
+		current_ship.get_node("Mbappe").visible = false
+		current_ship.get_node("propulseur").stop()
+		current_ship.get_node("explosion_son").play()
+		current_ship.linear_velocity = Vector2.ZERO
+		var explosion = current_ship.get_node("explosion")
+		explosion.emitting = true
+		await explosion.finished
 		delete_ship("Space ship recalled")
 		
 func spawn_ship() -> void:
@@ -77,6 +84,7 @@ func spawn_ship() -> void:
 	current_ship = ship
 	
 func delete_ship(cause : String) -> void:
+	get_node("SpaceShip").queue_free()
 	remove_child(get_node("SpaceShip"))
 	get_parent().get_node("music").stop()
 	ship_spawned = false
@@ -89,6 +97,7 @@ func delete_ship(cause : String) -> void:
 	await canvas.type_text("Annoncer", cause)
 	await get_tree().create_timer(0.25).timeout
 	canvas.fade_out("Annoncer")
+	
 	
 func start_directed_cam() -> void:
 	var cam = get_parent().get_node("Camera2D")

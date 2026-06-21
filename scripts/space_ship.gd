@@ -12,6 +12,7 @@ var sun : Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$propulseur.play()
 	sun = get_parent().get_parent().get_node("Soleil")
 	
 	# On désactive la gravité globale du projet pour ce vaisseau
@@ -62,12 +63,19 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 		if area.name == "Soleil":
 			text = "Space ship vaporized..."
 			PlayerInfo.set_score(int(PlayerInfo.score/2))
-			$plouf.play()
 		elif area.name == "Borders":
 			text = "Space ship lost..."
 		else:
 			text = "Space ship destroyed..."
 		get_parent().delete_ship(text)
+		
+	if area.is_in_group("Speedrun"):
+		PlayerInfo.set_score(99999)
+		get_parent().get_parent().explode_earth()
+		
+		get_parent().delete_ship("Humanity destroyed !")
+		
+		PlayerInfo.reset_game()
 		
 	var parent = area.get_parent()
 	

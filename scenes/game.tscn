@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://noa60c0t6tw5"]
 
 [ext_resource type="Script" uid="uid://d25thv32qt80l" path="res://scripts/game.gd" id="1_p57ef"]
+[ext_resource type="Texture2D" uid="uid://dr3w4cyjgiaku" path="res://ressources/imgs/fond.png" id="2_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://cx817xlp5538v" path="res://ressources/imgs/planete_terre.png" id="2_p57ef"]
 [ext_resource type="Shader" uid="uid://dw2a4535cv116" path="res://shaders/background.gdshader" id="2_u5sy4"]
 [ext_resource type="FontFile" uid="uid://o8w1hyt3aa18" path="res://tests/este/Prototype.ttf" id="3_pn8af"]
@@ -16,13 +17,13 @@ shader = ExtResource("2_u5sy4")
 shader_parameter/wave_speed = 0.10000000149012
 shader_parameter/wave_frequency = 8.1670003404325
 shader_parameter/wave_amplitude = 0.0710000033725
-shader_parameter/color1 = Color(0, 0.003921569, 0, 0.85490197)
-shader_parameter/color2 = Color(0.050980393, 0.05490196, 0.06666667, 0.7411765)
+shader_parameter/color1 = Color(0, 0, 0, 0.45490196)
+shader_parameter/color2 = Color(0.18291792, 0.19172154, 0.2181324, 0.49019608)
 
 [sub_resource type="Gradient" id="Gradient_iywne"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0.10227273, 0.4318182, 0.71022725, 0.9943182)
-colors = PackedColorArray(0.18000486, 0.18000486, 0.18000486, 0.6509804, 0.1584723, 0.15847233, 0.1584723, 1, 0.0885599, 0.08855992, 0.08855987, 0.7607843, 0.08468992, 0.08468992, 0.08468992, 0.9098039)
+colors = PackedColorArray(0.18000486, 0.18000486, 0.18000486, 0.6509804, 0.15686275, 0.15686275, 0.15686275, 0.6901961, 0.0885599, 0.08855992, 0.08855987, 0.7607843, 0.08627451, 0.08627451, 0.08627451, 0.8)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_82o31"]
 gradient = SubResource("Gradient_iywne")
@@ -30,8 +31,22 @@ fill = 1
 fill_from = Vector2(0.32478634, 0.6880342)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_82o31"]
-radius = 1187.4258
+radius = 876.96436
 height = 4252.868
+
+[sub_resource type="Gradient" id="Gradient_kvpfn"]
+offsets = PackedFloat32Array(0.4754717, 1)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6lemk"]
+gradient = SubResource("Gradient_kvpfn")
+fill = 1
+fill_from = Vector2(0.52991456, 0.54273504)
+fill_to = Vector2(0.64529914, 0.36324787)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6lemk"]
+radius = 448.51855
+height = 1650.0
 
 [node name="game" type="Node2D" unique_id=1671598491]
 script = ExtResource("1_p57ef")
@@ -40,16 +55,27 @@ vitesse_rotation_min = -0.5
 vitesse_rotation_max = 0.5
 free_cam = true
 
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=202085596]
+texture_repeat = 2
+offset_left = -17628.0
+offset_top = -9793.0
+offset_right = 17646.668
+offset_bottom = 10049.0
+texture = ExtResource("2_kvpfn")
+stretch_mode = 1
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1063502516]
 material = SubResource("ShaderMaterial_p57ef")
-offset_left = -17523.0
-offset_top = -9854.0
-offset_right = 18596.61
-offset_bottom = 11326.0
+offset_left = -18099.0
+offset_top = -10553.0
+offset_right = 18020.61
+offset_bottom = 10627.0
 texture = SubResource("GradientTexture2D_82o31")
 
 [node name="Launch_zone" type="Area2D" parent="." unique_id=118761695]
 position = Vector2(-8911, 4917)
+collision_layer = 128
+collision_mask = 0
 
 [node name="PlaneteTerre" type="Sprite2D" parent="Launch_zone" unique_id=580850965]
 position = Vector2(0.0014648438, -0.0009765625)
@@ -57,9 +83,42 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_p57ef")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Launch_zone" unique_id=386140047]
-position = Vector2(562, -681)
+position = Vector2(798, -851)
 rotation = -0.76404095
 shape = SubResource("CapsuleShape2D_82o31")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Launch_zone" unique_id=277871198]
+texture_filter = 1
+position = Vector2(41, -37)
+emitting = false
+amount = 800
+texture = SubResource("GradientTexture2D_6lemk")
+lifetime = 20.0
+one_shot = true
+speed_scale = 10.0
+explosiveness = 1.0
+randomness = 0.5
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 226.67
+initial_velocity_max = 1000.0
+angular_velocity_min = -124.8
+angular_velocity_max = 86.4
+radial_accel_min = -17.33
+radial_accel_max = 84.0
+tangential_accel_min = -26.67
+tangential_accel_max = 53.33
+angle_max = 96.0
+scale_amount_max = 24.0
+
+[node name="Speedrun_zone" type="Area2D" parent="." unique_id=1711523925 groups=["Speedrun"]]
+position = Vector2(-9213, 5043)
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Speedrun_zone" unique_id=247808748]
+rotation = -0.6981317
+shape = SubResource("CapsuleShape2D_6lemk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1175517609 node_paths=PackedStringArray("score_label", "annoncer")]
 script = ExtResource("4_0tnpc")

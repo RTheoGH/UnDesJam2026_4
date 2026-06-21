@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bb7wt6nirf4wy" path="res://scripts/target.gd" id="1_b5a2r"]
 [ext_resource type="Texture2D" uid="uid://dmjy7igt0asiy" path="res://tests/will/maison_1.png" id="2_nlbrr"]
+[ext_resource type="AudioStream" uid="uid://gd1b8e3fy7r5" path="res://ressources/sounds/son destruction.wav" id="3_nlbrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(329, 364)
@@ -25,3 +26,8 @@ collision_layer = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetHitbox" unique_id=491952580]
 position = Vector2(-3.5, 73)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=915478440]
+stream = ExtResource("3_nlbrr")
+volume_db = 10.0
+max_distance = 500.0

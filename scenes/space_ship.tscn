@@ -2,13 +2,23 @@
 
 [ext_resource type="Script" uid="uid://cen30exkwoo0o" path="res://scripts/space_ship.gd" id="1_bt5oy"]
 [ext_resource type="Texture2D" uid="uid://dab8166is4o2q" path="res://ressources/imgs/Sonde.png" id="2_bt5oy"]
-[ext_resource type="AudioStream" uid="uid://dc573rl1vq0ik" path="res://ressources/sounds/son plouf soleil.wav" id="3_jy7xo"]
+[ext_resource type="AudioStream" uid="uid://foqaeerx4ifa" path="res://ressources/sounds/propulseur.mp3" id="3_n0g6o"]
+[ext_resource type="AudioStream" uid="uid://ba2f360xue31b" path="res://ressources/sounds/son explosion.wav" id="4_n0g6o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bhunq"]
 radius = 58.034473
 
 [sub_resource type="Gradient" id="Gradient_82o31"]
 colors = PackedColorArray(0.9254902, 0.8980392, 0, 1, 1, 0, 0.05490196, 1)
+
+[sub_resource type="Gradient" id="Gradient_6lemk"]
+offsets = PackedFloat32Array(0, 0.2605364, 0.61685824, 1)
+colors = PackedColorArray(1, 1, 0.7294118, 1, 1, 0.9843137, 0.17254902, 1, 1, 0.2627451, 0.1764706, 0.7372549, 0, 0, 0, 0.45882353)
+
+[sub_resource type="Curve" id="Curve_gtojp"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q40gy"]
 radius = 62.008064
@@ -83,8 +93,39 @@ scale_amount_max = 45.74
 color = Color(1, 0.7372549, 0.24705882, 1)
 color_ramp = SubResource("Gradient_82o31")
 
+[node name="explosion" type="CPUParticles2D" parent="." unique_id=740909261]
+position = Vector2(0, -3.8146973e-06)
+rotation = 1.5707964
+scale = Vector2(0.23910987, 0.23910989)
+emitting = false
+amount = 300
+lifetime = 3.0
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+randomness = 0.25
+local_coords = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 106.67
+initial_velocity_max = 286.67
+angular_velocity_min = -124.8
+angular_velocity_max = 124.8
+linear_accel_min = -33.33
+linear_accel_max = 13.33
+radial_accel_min = -21.33
+radial_accel_max = 30.67
+angle_min = -96.0
+angle_max = 57.6
+scale_amount_max = 30.0
+color_ramp = SubResource("Gradient_6lemk")
+hue_variation_min = -0.11
+hue_variation_max = 0.11
+hue_variation_curve = SubResource("Curve_gtojp")
+
 [node name="AtmosphèreDetectionArea" type="Area2D" parent="." unique_id=1652923506]
-collision_mask = 6
+collision_mask = 54
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AtmosphèreDetectionArea" unique_id=42247419]
 shape = SubResource("CircleShape2D_q40gy")
@@ -92,12 +133,13 @@ shape = SubResource("CircleShape2D_q40gy")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=443273810]
 
 [node name="propulseur" type="AudioStreamPlayer2D" parent="." unique_id=2003241948]
-max_distance = 100.0
+stream = ExtResource("3_n0g6o")
+max_distance = 400.0
 
-[node name="plouf" type="AudioStreamPlayer2D" parent="." unique_id=1203509385]
-stream = ExtResource("3_jy7xo")
-volume_db = -10.0
-max_distance = 100.0
+[node name="explosion_son" type="AudioStreamPlayer2D" parent="." unique_id=136392119]
+stream = ExtResource("4_n0g6o")
+volume_db = 5.0
+max_distance = 500.0
 
 [connection signal="area_entered" from="AtmosphèreDetectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="AtmosphèreDetectionArea" to="." method="_on_detection_area_area_exited"]

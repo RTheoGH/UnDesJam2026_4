@@ -212,3 +212,7 @@ func _on_launch_zone_mouse_entered() -> void:
 
 func _on_launch_zone_mouse_exited() -> void:
 	mouse_in_launch_zone = false
+
+func explode_earth() -> void:
+	$Launch_zone/PlaneteTerre.visible = false
+	$Launch_zone/CPUParticles2D.emitting = true
