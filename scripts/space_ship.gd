@@ -60,11 +60,12 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Morts"):
 		var text : String
 		if area.name == "Soleil":
-			text = "Space ship vaporized"
+			text = "Space ship vaporized..."
+			PlayerInfo.set_score(int(PlayerInfo.score/2))
 		elif area.name == "Borders":
-			text = "Space ship lost"
+			text = "Space ship lost..."
 		else:
-			text = "Space ship destroyed"
+			text = "Space ship destroyed..."
 		get_parent().delete_ship(text)
 		
 	var parent = area.get_parent()

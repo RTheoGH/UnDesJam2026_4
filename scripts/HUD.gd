@@ -26,18 +26,34 @@ func create_score(score) -> String:
 
 @onready var tween:= get_tree().create_tween()
 
-func fade_in(obj_name: String, duration := 1.0):
-	var obj = self.get_node(obj_name)
+func fade_in(label: String, duration := 0.5):
+	var obj = self.get_node(label)
 	obj.modulate.a = 0.0
 	obj.visible = true
 	tween.kill()
 	tween = get_tree().create_tween()
 	tween.tween_property(obj, "modulate:a", 1.0, duration)
 	
-func fade_out(obj_name: String, duration := 1.0):
+func fade_out(obj_name: String, duration := 0.5):
 	var obj = self.get_node(obj_name)
 	obj.modulate.a = 1.0
 	tween.kill()
 	tween = get_tree().create_tween()
 	tween.tween_property(obj, "modulate:a", 0.0, duration)
 	#obj.visible = false
+
+func type_text(label: String, s: String, total_duration := 0.5):
+	var obj = self.get_node(label)
+	obj.text = s
+	obj.visible_characters = 0
+	
+	if s.length() == 0:
+		return
+	
+	var delay = total_duration / float(s.length())
+	
+	for i in range(s.length()):
+		obj.visible_characters = i + 1
+		await get_tree().create_timer(delay).timeout
+	
+	#emit_signal("text_finished")

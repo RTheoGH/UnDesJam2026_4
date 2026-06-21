@@ -84,9 +84,10 @@ func delete_ship(cause : String) -> void:
 	cam_directed = false
 	end_directed_cam()
 	var canvas = get_parent().get_node("CanvasLayer")
-	canvas.get_node("Annoncer").text = cause
+	#canvas.get_node("Annoncer").text = cause
 	canvas.fade_in("Annoncer")
-	await get_tree().create_timer(1.0).timeout
+	await canvas.type_text("Annoncer", cause)
+	await get_tree().create_timer(0.25).timeout
 	canvas.fade_out("Annoncer")
 	
 func start_directed_cam() -> void:

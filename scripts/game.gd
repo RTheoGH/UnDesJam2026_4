@@ -5,6 +5,12 @@ extends Node2D
 
 @export var p1 : Vector2 = Vector2(-6400,-4000)
 @export var p2 : Vector2 = Vector2(6400, 4000)
+
+@export var ap1 : Vector2 = Vector2(0, -12500)
+@export var ap2 : Vector2 = Vector2(-12500, -2500)
+@export var ap3 : Vector2 = Vector2(2500, 12500)
+@export var ap4 : Vector2 = Vector2(15000, 0)
+
 @export var n_planetes : int = 10
 @export var n_asteroids : int = 80
 @export var distance_min_planets : float = 2500.0
@@ -39,12 +45,13 @@ func _ready() -> void:
 		await get_tree().create_timer(0.025).timeout
 		spawn_planete()
 	for i in range(n_asteroids):
-		await get_tree().create_timer(0.0005).timeout
+		#await get_tree().create_timer(0.0005).timeout
 		spawn_asteroids()
 	get_node("Launch_zone/CollisionShape2D").disabled = false
 	
 	canvas.fade_in("Annoncer")
-	await get_tree().create_timer(1).timeout
+	await canvas.type_text("Annoncer", "Start !")
+	await get_tree().create_timer(0.25).timeout
 	canvas.fade_out("Annoncer")
 	
 func _process(delta: float) -> void:
@@ -117,6 +124,27 @@ func random_pos(point1 : Vector2, point2 : Vector2) -> Vector2:
 	var y = randf_range(point1.y, point2.y)
 	return Vector2(x,y)
 
+func random_pos_ast(p1 : Vector2, p2 : Vector2, p3 : Vector2, p4 : Vector2) -> Vector2:
+	var area1 = tri_area(p1, p2, p3)
+	var area2 = tri_area(p1, p3, p4)
+	var total_area = area1 + area2
+
+	if randf() < area1 / total_area:
+		return r_in_tri(p1, p2, p3)
+	else:
+		return r_in_tri(p1, p3, p4)
+
+func tri_area(a: Vector2, b: Vector2, c: Vector2) -> float:
+	return abs((b.x - a.x) * (c.y - a.y) - (c.x - a.x) * (b.y - a.y)) / 2.0
+	
+func r_in_tri(a: Vector2, b: Vector2, c: Vector2) -> Vector2:
+	var r1 = randf()
+	var r2 = randf()
+	if r1 + r2 > 1.0:
+		r1 = 1.0 - r1
+		r2 = 1.0 - r2
+	return a + r1 * (b - a) + r2 * (c - a)
+
 # Vérifie que la pos est valide
 func pos_valide(pos : Vector2, is_planet: bool) -> bool:
 	var d : float
@@ -161,9 +189,9 @@ func spawn_asteroids():
 	var pos : Vector2
 	var essais = 0
 	
-	pos = random_pos(p1, p2)
+	pos = random_pos_ast(ap1, ap2, ap3, ap4)
 	while not pos_valide(pos, false) and essais < max_essais:
-		pos = random_pos(p1, p2)
+		pos = random_pos_ast(ap1, ap2, ap3, ap4)
 		essais += 1
 		
 	if essais >= max_essais:

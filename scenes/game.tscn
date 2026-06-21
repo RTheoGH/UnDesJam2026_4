@@ -34,8 +34,10 @@ height = 4252.868
 
 [node name="game" type="Node2D" unique_id=1671598491]
 script = ExtResource("1_p57ef")
+n_asteroids = 200
 vitesse_rotation_min = -0.5
 vitesse_rotation_max = 0.5
+free_cam = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1063502516]
 material = SubResource("ShaderMaterial_p57ef")
