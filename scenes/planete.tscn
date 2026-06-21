@@ -18,7 +18,7 @@ gravity_scale = 0.0
 script = ExtResource("1_8li2x")
 planeteSprites = Array[String](["res://ressources/imgs/planetes/planete_1.png", "res://ressources/imgs/planetes/Planete_A.png", "res://ressources/imgs/planetes/planete.png", "res://ressources/imgs/planetes/planet_Clo.png", "res://ressources/imgs/planetes/planete_lou.png"])
 atmosSprites = Array[String](["res://ressources/imgs/atmospheres/atmos_1.png", "res://ressources/imgs/atmospheres/namek_atmosphere.png", "res://ressources/imgs/atmospheres/atmosphere.png", "res://ressources/imgs/atmospheres/atmosphere_planet_Clo.png", "res://ressources/imgs/atmospheres/atmosphere_lou.png"])
-atmosScales = Array[float]([1.2, 1.5, 4.5, 1.2, 1.2])
+atmosScales = Array[float]([1.2, 1.6, 4.5, 1.2, 1.2])
 planeteScales = Array[float]([1.05, 2.2, 2.5, 1.1, 1.05])
 target_scene = ExtResource("2_lhfgk")
 

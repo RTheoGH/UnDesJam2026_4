@@ -9,7 +9,7 @@ radius = 64.49806
 [node name="RocherHitbox" type="RigidBody2D" unique_id=917916693 groups=["Destructibles"]]
 gravity_scale = 0.0
 script = ExtResource("1_oewhh")
-sprites = Array[String](["res://icon.svg"])
+sprites = Array[String](["res://ressources/imgs/nugget_1.png", "res://ressources/imgs/nugget_2.png"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1401388111]
 shape = SubResource("CircleShape2D_g4v7s")

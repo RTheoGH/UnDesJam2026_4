@@ -6,7 +6,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var s = randf_range(0.5,1.5)
+	var s = randf_range(0.3,0.6)
 	sprite.texture = load(sprites[randi_range(0,0)])
 	sprite.scale = Vector2(s,s)
 	sprite.rotation = randf_range(0,360)
