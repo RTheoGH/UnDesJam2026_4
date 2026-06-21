@@ -30,7 +30,10 @@ var planetes_data : Array = []
 
 var mouse_in_launch_zone = false
 
+var canvas : CanvasLayer
+
 func _ready() -> void:
+	canvas = get_node("CanvasLayer")
 	get_node("Launch_zone/CollisionShape2D").disabled = true
 	for i in range(n_planetes):
 		await get_tree().create_timer(0.025).timeout
@@ -39,9 +42,10 @@ func _ready() -> void:
 		await get_tree().create_timer(0.0005).timeout
 		spawn_asteroids()
 	get_node("Launch_zone/CollisionShape2D").disabled = false
-	$CanvasLayer/RichTextLabel.show()
+	
+	canvas.fade_in("Annoncer")
 	await get_tree().create_timer(1).timeout
-	$CanvasLayer/RichTextLabel.hide()
+	canvas.fade_out("Annoncer")
 	
 func _process(delta: float) -> void:
 	for data in planetes_data:

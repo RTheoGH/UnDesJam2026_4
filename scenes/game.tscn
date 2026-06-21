@@ -59,9 +59,10 @@ position = Vector2(562, -681)
 rotation = -0.76404095
 shape = SubResource("CapsuleShape2D_82o31")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1175517609 node_paths=PackedStringArray("score_label")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1175517609 node_paths=PackedStringArray("score_label", "annoncer")]
 script = ExtResource("4_0tnpc")
 score_label = NodePath("Label")
+annoncer = NodePath("Annoncer")
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=1241588513]
 offset_left = 10.0
@@ -73,8 +74,7 @@ theme_override_font_sizes/font_size = 30
 text = "SCORE :"
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=138611860]
-visible = false
+[node name="Annoncer" type="RichTextLabel" parent="CanvasLayer" unique_id=138611860]
 anchors_preset = -1
 anchor_left = 0.328
 anchor_top = 0.469
@@ -104,6 +104,12 @@ volume_db = -15.0
 
 [node name="Soleil" parent="." unique_id=926955801 instance=ExtResource("9_0tnpc")]
 position = Vector2(11570, -7315)
+
+[node name="Borders" type="Area2D" parent="." unique_id=1441174802 groups=["Morts"]]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders" unique_id=131009824]
+polygon = PackedVector2Array(10660, 5683, 10753, -6603, -10498, -6719, -10475, 6333, 10627, 6316, 10650, 5706, 10167, 5773, -9981, 5869, -10024, -6115, 10252, -6216, 10165, 5754)
 
 [connection signal="mouse_entered" from="Launch_zone" to="." method="_on_launch_zone_mouse_entered"]
 [connection signal="mouse_exited" from="Launch_zone" to="." method="_on_launch_zone_mouse_exited"]

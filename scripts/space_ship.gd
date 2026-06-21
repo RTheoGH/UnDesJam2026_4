@@ -58,7 +58,14 @@ func calculate_attractions() -> Vector2:
 # Ajoute l'orbite traversée au dictionnaire "orbites" avec le nom en clé et les infos en valeurs
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Morts"):
-		get_parent().delete_ship()
+		var text : String
+		if area.name == "Soleil":
+			text = "Space ship vaporized"
+		elif area.name == "Borders":
+			text = "Space ship lost"
+		else:
+			text = "Space ship destroyed"
+		get_parent().delete_ship(text)
 		print("soleil")
 		
 	var parent = area.get_parent()
