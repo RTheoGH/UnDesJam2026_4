@@ -15,12 +15,14 @@ gravity_scale = 0.0
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=432295978]
+visible = false
 shape = SubResource("CircleShape2D_fkba7")
 
 [node name="GraviteArea" type="Area2D" parent="." unique_id=1443111089]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GraviteArea" unique_id=1211441845]
+visible = false
 shape = SubResource("CircleShape2D_5xci8")
 
 [node name="PlaneteSprite" type="Sprite2D" parent="." unique_id=67609281]
