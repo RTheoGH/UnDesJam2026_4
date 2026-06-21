@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://snkjnyds3eqi"]
+
+[ext_resource type="FontFile" uid="uid://o8w1hyt3aa18" path="res://tests/este/Prototype.ttf" id="1_c8pta"]
+[ext_resource type="Script" uid="uid://cwh87lq102qm8" path="res://gameover_panel.gd" id="1_mks5g"]
+
+[node name="GMPanel" type="Control" unique_id=1241517510]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mks5g")
+
+[node name="Panel" type="Panel" parent="." unique_id=1283019338]
+layout_mode = 0
+offset_left = -230.0
+offset_top = -100.0
+offset_right = 230.0
+offset_bottom = 102.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="LineEdit" type="LineEdit" parent="Panel" unique_id=1600786909]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 88.0
+offset_right = 215.5
+offset_bottom = 119.0
+max_length = 3
+
+[node name="Label" type="Label" parent="Panel" unique_id=1801619973]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 92.0
+offset_right = 137.0
+offset_bottom = 115.0
+theme_override_fonts/font = ExtResource("1_c8pta")
+text = "NAME :"
+
+[node name="Label2" type="Label" parent="Panel" unique_id=1514629465]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 92.0
+offset_right = 297.0
+offset_bottom = 115.0
+theme_override_fonts/font = ExtResource("1_c8pta")
+text = "SCORE :"
+
+[node name="Label4" type="Label" parent="Panel" unique_id=1238635807]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 16.0
+offset_right = 96.0
+offset_bottom = 57.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_c8pta")
+theme_override_font_sizes/font_size = 34
+text = "GAME OVER"
+
+[node name="Label3" type="Label" parent="Panel" unique_id=454663680]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 92.0
+offset_right = 390.0
+offset_bottom = 115.0
+theme_override_fonts/font = ExtResource("1_c8pta")
+text = "00000"
+
+[node name="Button" type="Button" parent="Panel" unique_id=376225891]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -47.0
+offset_right = 47.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_c8pta")
+text = "ENREGISTRER"
+
+[node name="Button2" type="Button" parent="Panel" unique_id=1998371917]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 66.0
+offset_top = -47.0
+offset_right = 160.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_c8pta")
+text = "QUITTER"
+
+[node name="Button3" type="Button" parent="Panel" unique_id=1560557520]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = -47.0
+offset_right = -67.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_c8pta")
+text = "RETOUR"
+
+[connection signal="text_changed" from="Panel/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="button_down" from="Panel/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Panel/Button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="Panel/Button3" to="." method="_on_button_3_button_down"]

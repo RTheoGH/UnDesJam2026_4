@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://crf4m6lpgxbyd"]
 
 [ext_resource type="Texture2D" uid="uid://cfrotfowb8ly6" path="res://ressources/imgs/Menu_despioneer.png" id="1_mwn6m"]
+[ext_resource type="PackedScene" uid="uid://snkjnyds3eqi" path="res://GameoverPanel.tscn" id="2_3d26k"]
 
 [node name="End" type="Control" unique_id=1158724647]
 layout_mode = 3
@@ -20,3 +21,6 @@ grow_vertical = 2
 texture = ExtResource("1_mwn6m")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="GMPanel" parent="." unique_id=1241517510 instance=ExtResource("2_3d26k")]
+layout_mode = 1
