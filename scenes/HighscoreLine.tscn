@@ -36,13 +36,31 @@ offset_right = 261.6
 offset_bottom = 24.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hyc3c")
 
-[node name="Label" type="Label" parent="Panel" unique_id=1710046624]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=1699627105]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 260.0
+offset_bottom = 20.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="L_pos" type="Label" parent="Panel/HBoxContainer" unique_id=1710046624]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_gpxx6")
-text = "NNN   -   00000"
+text = "1"
+horizontal_alignment = 1
+
+[node name="l_name" type="Label" parent="Panel/HBoxContainer" unique_id=1203953240]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_gpxx6")
+text = "NNN"
+horizontal_alignment = 1
+
+[node name="l_score" type="Label" parent="Panel/HBoxContainer" unique_id=1769185760]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_gpxx6")
+text = "00000"
 horizontal_alignment = 1

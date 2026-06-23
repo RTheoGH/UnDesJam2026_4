@@ -3,6 +3,23 @@
 [ext_resource type="FontFile" uid="uid://o8w1hyt3aa18" path="res://tests/este/Prototype.ttf" id="1_c8pta"]
 [ext_resource type="Script" uid="uid://cwh87lq102qm8" path="res://gameover_panel.gd" id="1_mks5g"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mks5g"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.34901962, 0.05882353, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8784314, 0.18039216, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
 [node name="GMPanel" type="Control" unique_id=1241517510]
 layout_mode = 3
 anchors_preset = 8
@@ -39,15 +56,6 @@ offset_bottom = 115.0
 theme_override_fonts/font = ExtResource("1_c8pta")
 text = "NAME :"
 
-[node name="Label2" type="Label" parent="Panel" unique_id=1514629465]
-layout_mode = 0
-offset_left = 244.0
-offset_top = 92.0
-offset_right = 297.0
-offset_bottom = 115.0
-theme_override_fonts/font = ExtResource("1_c8pta")
-text = "SCORE :"
-
 [node name="Label4" type="Label" parent="Panel" unique_id=1238635807]
 layout_mode = 1
 anchors_preset = 5
@@ -61,15 +69,6 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_c8pta")
 theme_override_font_sizes/font_size = 34
 text = "GAME OVER"
-
-[node name="Label3" type="Label" parent="Panel" unique_id=454663680]
-layout_mode = 0
-offset_left = 332.0
-offset_top = 92.0
-offset_right = 390.0
-offset_bottom = 115.0
-theme_override_fonts/font = ExtResource("1_c8pta")
-text = "00000"
 
 [node name="Button" type="Button" parent="Panel" unique_id=376225891]
 layout_mode = 1
@@ -119,7 +118,76 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_c8pta")
 text = "RETOUR"
 
+[node name="ERRORPanel" type="Panel" parent="Panel" unique_id=1823526002]
+visible = false
+layout_mode = 0
+offset_left = -82.0
+offset_top = 20.0
+offset_right = 541.0
+offset_bottom = 182.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mks5g")
+
+[node name="Label5" type="Label" parent="Panel/ERRORPanel" unique_id=1604261690]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -295.5
+offset_top = -61.0
+offset_right = 295.5
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.90015465, 0.88309574, 1)
+theme_override_colors/font_outline_color = Color(0.7497112, 0.027149763, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_constants/shadow_outline_size = -126
+theme_override_fonts/font = ExtResource("1_c8pta")
+theme_override_font_sizes/font_size = 35
+text = "ERROR EARTH NETWORK NOT FOUD !"
+
+[node name="Button" type="Button" parent="Panel/ERRORPanel" unique_id=766224099]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = 3.0
+offset_right = -81.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.89839447, 0.15172914, 0.051881403, 1)
+theme_override_fonts/font = ExtResource("1_c8pta")
+theme_override_font_sizes/font_size = 27
+text = "RETURN"
+
+[node name="Label2" type="Label" parent="Panel" unique_id=1514629465]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+theme_override_fonts/font = ExtResource("1_c8pta")
+text = "SCORE :"
+
+[node name="Label3" type="Label" parent="Panel" unique_id=454663680]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 92.0
+offset_right = 390.0
+offset_bottom = 115.0
+theme_override_fonts/font = ExtResource("1_c8pta")
+text = "00000"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1909332205]
+
 [connection signal="text_changed" from="Panel/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="button_down" from="Panel/Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Panel/Button2" to="." method="_on_button_2_button_down"]
 [connection signal="button_down" from="Panel/Button3" to="." method="_on_button_3_button_down"]
+[connection signal="pressed" from="Panel/ERRORPanel/Button" to="." method="_on_button_pressed"]

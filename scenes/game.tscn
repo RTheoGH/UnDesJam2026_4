@@ -68,10 +68,10 @@ stretch_mode = 1
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1063502516]
 z_index = -10
 material = SubResource("ShaderMaterial_p57ef")
-offset_left = -18099.0
-offset_top = -10553.0
-offset_right = 18020.61
-offset_bottom = 10627.0
+offset_left = -18042.0
+offset_top = -10500.0
+offset_right = 18077.61
+offset_bottom = 10680.0
 texture = SubResource("GradientTexture2D_82o31")
 
 [node name="Launch_zone" type="Area2D" parent="." unique_id=118761695]

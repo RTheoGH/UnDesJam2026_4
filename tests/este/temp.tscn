@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dplrsf7ya2vky"]
+
+[ext_resource type="Script" uid="uid://ul8s4yawiwt3" path="res://tests/este/new_script.gd" id="1_x6x4h"]
+
+[node name="Node2D" type="Node2D" unique_id=2055501453]
+script = ExtResource("1_x6x4h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=262092780]
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer" unique_id=23035401]
+offset_left = 252.0
+offset_top = 188.0
+offset_right = 320.5
+offset_bottom = 219.0

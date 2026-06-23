@@ -19,12 +19,17 @@ config/icon="uid://cmxqf3swh2r3j"
 [autoload]
 
 PlayerInfo="*uid://danfccfskfvjh"
+SilentWolf="*uid://ca4lfxhounqw7"
 
 [display]
 
 window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/silent_wolf/plugin.cfg")
 
 [file_customization]
 
