@@ -17,7 +17,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func _on_button_pressed() -> void:
+func _on_start_pressed() -> void:
 	$AudioStreamPlayer2D.stop()
 	get_tree().change_scene_to_packed(game)
 
@@ -38,3 +38,7 @@ func sort_players_and_add_position(player_list):
 		position += 1
 		
 	return player_list
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()

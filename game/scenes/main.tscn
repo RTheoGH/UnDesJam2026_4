@@ -26,16 +26,7 @@ texture = ExtResource("2_tbgi4")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="lueur" type="TextureRect" parent="." unique_id=39106557]
-layout_mode = 0
-offset_left = -5.0
-offset_top = 270.0
-offset_right = 1146.4
-offset_bottom = 384.0
-texture = ExtResource("3_tefeu")
-expand_mode = 1
-
-[node name="Button" type="Button" parent="." unique_id=34249119]
+[node name="Start" type="Button" parent="." unique_id=34249119]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.437
@@ -43,9 +34,9 @@ anchor_top = 0.469
 anchor_right = 0.565
 anchor_bottom = 0.54
 offset_left = 0.57598877
-offset_top = 0.08798218
+offset_top = -20.912018
 offset_right = 0.11999512
-offset_bottom = 0.07998657
+offset_bottom = -19.920013
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_hover_color = Color(0.09411765, 0.09803922, 0.9490196, 1)
@@ -54,9 +45,90 @@ theme_override_font_sizes/font_size = 32
 text = "START"
 flat = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2140730051]
-stream = ExtResource("2_0wfyh")
-volume_db = -10.0
+[node name="lueur" type="TextureRect" parent="Start" unique_id=39106557]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.585449
+anchor_top = -0.425766
+anchor_right = 3.564551
+anchor_bottom = 1.4782342
+offset_left = 0.06100464
+offset_top = 0.011001587
+offset_right = -0.039001465
+offset_bottom = 0.022994995
+texture = ExtResource("3_tefeu")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Options" type="Button" parent="." unique_id=1053021008]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.56113195
+anchor_top = 0.53900003
+anchor_right = 0.6891319
+anchor_bottom = 0.611
+offset_left = 0.57598877
+offset_top = -0.2720337
+offset_right = 0.11999512
+offset_bottom = 0.07199097
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.09411765, 0.09803922, 0.9490196, 1)
+theme_override_fonts/font = ExtResource("4_jyhfs")
+theme_override_font_sizes/font_size = 32
+text = "OPTIONS"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="lueur" type="TextureRect" parent="Options" unique_id=1815542002]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.231259
+anchor_top = -0.36144683
+anchor_right = 2.2716534
+anchor_bottom = 1.3515532
+offset_left = -0.005004883
+offset_top = -0.01199913
+offset_right = 0.06695557
+offset_bottom = -0.023002625
+texture = ExtResource("3_tefeu")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Exit" type="Button" parent="." unique_id=1788627619]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.71043754
+anchor_top = 0.63144445
+anchor_right = 0.83843744
+anchor_bottom = 0.7034445
+offset_left = 0.57598877
+offset_top = -0.17599487
+offset_right = 0.11999512
+offset_bottom = 0.16799927
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.09411765, 0.09803922, 0.9490196, 1)
+theme_override_fonts/font = ExtResource("4_jyhfs")
+theme_override_font_sizes/font_size = 32
+text = "EXIT"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="lueur" type="TextureRect" parent="Exit" unique_id=1188314447]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.7283069
+anchor_top = -0.44704258
+anchor_right = 1.6193117
+anchor_bottom = 1.4569576
+offset_left = 0.06100464
+offset_top = 0.011001587
+offset_right = -0.039001465
+offset_bottom = 0.022994995
+texture = ExtResource("3_tefeu")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=728604676]
 layout_mode = 1
@@ -87,4 +159,10 @@ theme_override_fonts/font = ExtResource("4_jyhfs")
 theme_override_font_sizes/font_size = 25
 text = "HIGHSCORES"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2140730051]
+stream = ExtResource("2_0wfyh")
+volume_db = -10.0
+bus = &"Music"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

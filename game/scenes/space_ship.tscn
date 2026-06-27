@@ -141,11 +141,13 @@ shape = SubResource("CircleShape2D_q40gy")
 [node name="propulseur" type="AudioStreamPlayer2D" parent="." unique_id=2003241948]
 stream = ExtResource("3_n0g6o")
 max_distance = 400.0
+bus = &"SFX"
 
 [node name="explosion_son" type="AudioStreamPlayer2D" parent="." unique_id=136392119]
 stream = ExtResource("4_n0g6o")
 volume_db = 5.0
 max_distance = 500.0
+bus = &"SFX"
 
 [node name="point_timer" type="Timer" parent="." unique_id=1148251324]
 

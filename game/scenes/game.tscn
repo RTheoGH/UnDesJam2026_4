@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://o8w1hyt3aa18" path="res://tests/este/Prototype.ttf" id="3_pn8af"]
 [ext_resource type="Script" uid="uid://iaf35ch72kja" path="res://scripts/HUD.gd" id="4_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://28gi7764qbbd" path="res://tests/este/SlingShot.tscn" id="4_qnlwm"]
+[ext_resource type="AudioStream" uid="uid://chw06hs0vnrbe" path="res://ressources/sounds/earth_explode.wav" id="5_dinhu"]
 [ext_resource type="Script" uid="uid://8hcdyrpses7a" path="res://scripts/slingshot.gd" id="7_vtaks"]
 [ext_resource type="AudioStream" uid="uid://bs3w46iij5jgi" path="res://ressources/musics/space jam - Pac.wav" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://dk3r5ypkwhr0v" path="res://scenes/soleil.tscn" id="9_0tnpc"]
@@ -114,6 +115,11 @@ tangential_accel_max = 53.33
 angle_max = 96.0
 scale_amount_max = 24.0
 
+[node name="explode_sound" type="AudioStreamPlayer" parent="Launch_zone" unique_id=692091085]
+stream = ExtResource("5_dinhu")
+volume_db = -5.0
+bus = &"SFX"
+
 [node name="Speedrun_zone" type="Area2D" parent="." unique_id=1711523925 groups=["Speedrun"]]
 position = Vector2(-9213, 5043)
 collision_layer = 32
@@ -212,6 +218,7 @@ zoom = Vector2(0.06, 0.06)
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=1714873169]
 stream = ExtResource("8_gee14")
 volume_db = -15.0
+bus = &"Music"
 
 [node name="Borders" type="Area2D" parent="." unique_id=1441174802 groups=["Morts"]]
 collision_layer = 2
@@ -225,6 +232,7 @@ position = Vector2(11606, -7166)
 [node name="jingle" type="AudioStreamPlayer" parent="." unique_id=350230010]
 stream = ExtResource("10_vtaks")
 volume_db = -15.0
+bus = &"SFX"
 
 [node name="Timer" type="Timer" parent="." unique_id=2077688240]
 wait_time = 90.0

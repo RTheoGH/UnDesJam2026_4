@@ -31,3 +31,4 @@ texture = ExtResource("1_grjek")
 position = Vector2(-2437, 2105)
 stream = ExtResource("2_fkba7")
 max_distance = 10000.0
+bus = &"SFX"

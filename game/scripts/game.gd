@@ -137,15 +137,15 @@ func random_pos(point1 : Vector2, point2 : Vector2) -> Vector2:
 	var y = randf_range(point1.y, point2.y)
 	return Vector2(x,y)
 
-func random_pos_ast(p1 : Vector2, p2 : Vector2, p3 : Vector2, p4 : Vector2) -> Vector2:
-	var area1 = tri_area(p1, p2, p3)
-	var area2 = tri_area(p1, p3, p4)
+func random_pos_ast(point1 : Vector2, point2 : Vector2, point3 : Vector2, point4 : Vector2) -> Vector2:
+	var area1 = tri_area(point1, point2, point3)
+	var area2 = tri_area(point1, point3, point4)
 	var total_area = area1 + area2
 
 	if randf() < area1 / total_area:
-		return r_in_tri(p1, p2, p3)
+		return r_in_tri(point1, point2, point3)
 	else:
-		return r_in_tri(p1, p3, p4)
+		return r_in_tri(point1, point3, point4)
 
 func tri_area(a: Vector2, b: Vector2, c: Vector2) -> float:
 	return abs((b.x - a.x) * (c.y - a.y) - (c.x - a.x) * (b.y - a.y)) / 2.0
@@ -226,6 +226,7 @@ func _on_launch_zone_mouse_exited() -> void:
 func explode_earth() -> void:
 	$Launch_zone/PlaneteTerre.visible = false
 	$Launch_zone/CPUParticles2D.emitting = true
+	$Launch_zone/explode_sound.play()
 
 func _on_timer_timeout() -> void:
 	canvas.get_node("Time").text = "00:00"

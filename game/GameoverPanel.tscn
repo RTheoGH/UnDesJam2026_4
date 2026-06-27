@@ -146,7 +146,7 @@ theme_override_constants/outline_size = 7
 theme_override_constants/shadow_outline_size = -126
 theme_override_fonts/font = ExtResource("1_c8pta")
 theme_override_font_sizes/font_size = 35
-text = "ERROR EARTH NETWORK NOT FOUD !"
+text = "ERROR EARTH NETWORK NOT FOUND !"
 
 [node name="Button" type="Button" parent="Panel/ERRORPanel" unique_id=766224099]
 layout_mode = 1

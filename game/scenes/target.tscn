@@ -31,3 +31,4 @@ shape = SubResource("RectangleShape2D_g4v7s")
 stream = ExtResource("3_nlbrr")
 volume_db = 10.0
 max_distance = 500.0
+bus = &"SFX"

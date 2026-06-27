@@ -9,7 +9,7 @@ extends Control
 @onready var lore = $Panel/Lore
 
 var planete_index
-
+@onready var aura = $AudioStreamPlayer
 
 var planetes_infos = {
 	"55 Cancri e" = ["res://ressources/imgs/Vignette/Vignette_willo.png","res://tests/will/alien_1.png","~41 années-lumière","8 × Terre","55 Cancri","55 Cancri e est une « super-Terre » extrêmement proche de son étoile. Sa surface est probablement recouverte de lave en fusion, avec des températures infernales. Elle est connue pour son orbite ultra-rapide, bouclée en moins d’une journée terrestre."],
@@ -40,3 +40,11 @@ func _process(delta: float) -> void:
 
 func _on_button_button_down() -> void:
 	queue_free()
+
+
+func _on_phaune_mouse_entered() -> void:
+	if planete_index == 1:
+		aura.play()
+
+func _on_phaune_mouse_exited() -> void:
+	aura.stop()

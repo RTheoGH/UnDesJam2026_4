@@ -5,6 +5,10 @@ var player_name : String
 var player_list = []
 const FILE_NAME = "user://game-data.bin"
 
+signal game_ended
+
+func end_game():
+	game_ended.emit()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,9 +23,13 @@ func _ready() -> void:
 	})
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	leaderboard()
+	#leaderboard()
+	pass
 	
 func leaderboard() -> void:
+	print(PlayerInfo.player_name)
+	print(PlayerInfo.score)
+	print(PlayerInfo.player_list)
 	for score in PlayerInfo.score:
 		PlayerInfo.player_list.append(PlayerInfo.player_name)
 
